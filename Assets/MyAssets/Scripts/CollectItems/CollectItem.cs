@@ -6,6 +6,8 @@ public class CollectItem : MonoBehaviour
 {
     [SerializeField] private Transform visual;
     [SerializeField] private ParticleSystem particles;
+    [SerializeField] private AudioSource audioSource;
+    
     private float speedRotate = 15f;
     void Start()
     {
@@ -22,6 +24,9 @@ public class CollectItem : MonoBehaviour
     {
         visual.gameObject.SetActive(false);
         Instantiate(particles, transform.position, transform.rotation);
+        
+        audioSource.Play();
+        
         Destroy(gameObject, 5);
     }
 }
