@@ -7,6 +7,8 @@ public class CollectItem : MonoBehaviour
     [SerializeField] private Transform visual;
     [SerializeField] private ParticleSystem particles;
     [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private bool isMoney;
     
     private float speedRotate = 15f;
     void Start()
@@ -26,6 +28,13 @@ public class CollectItem : MonoBehaviour
         Instantiate(particles, transform.position, transform.rotation);
         
         audioSource.Play();
+
+        if (isMoney)
+        {
+            var collectMoney = FindFirstObjectByType<CoinCollect>();
+        
+            collectMoney.AddCollect();   
+        }
         
         Destroy(gameObject, 5);
     }
