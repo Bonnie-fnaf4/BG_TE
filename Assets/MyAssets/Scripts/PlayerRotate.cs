@@ -17,6 +17,8 @@ public class PlayerRotate : MonoBehaviour
             {
                 _playerMove.StartMove();
             });
+            
+            point.gameObject.SetActive(false);
         }
     }
 }
